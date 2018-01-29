@@ -7,8 +7,9 @@ package dfa
 import (
 	"sort"
 	"unicode"
-	"matloob.io/regexp/internal/input"
-	"matloob.io/regexp/syntax"
+
+	"github.com/smasher164/regexp/internal/input"
+	"github.com/smasher164/regexp/syntax"
 )
 
 type rangeMap struct {
@@ -62,7 +63,7 @@ func (rm *rangeMap) init(prog *syntax.Prog) {
 		rangemark[rh+1] = true
 	}
 	addRuneFolds := func(r rune) {
-		for r1 := unicode.SimpleFold(r) ;r1 != r; r1 = unicode.SimpleFold(r1) {
+		for r1 := unicode.SimpleFold(r); r1 != r; r1 = unicode.SimpleFold(r1) {
 			addRune(r1)
 		}
 	}

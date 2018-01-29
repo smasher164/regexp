@@ -6,8 +6,9 @@ package regexp
 
 import (
 	"io"
-	"matloob.io/regexp/internal/input"
-	"matloob.io/regexp/syntax"
+
+	"github.com/smasher164/regexp/internal/input"
+	"github.com/smasher164/regexp/syntax"
 )
 
 // A queue is a 'sparse array' holding pending threads of execution.
@@ -449,13 +450,13 @@ func (re *Regexp) doExecute(r io.RuneReader, b []byte, s string, pos int, ncap i
 			}
 			goto e
 		}
-		nfa:
+	nfa:
 		m.init(ncap)
 		if !m.match(i, pos) {
 			re.put(m)
 			return nil
 		}
-		e:
+	e:
 	}
 	if ncap == 0 {
 		re.put(m)

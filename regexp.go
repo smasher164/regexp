@@ -67,13 +67,14 @@ package regexp
 import (
 	"bytes"
 	"io"
-	"matloob.io/regexp/syntax"
-	"matloob.io/regexp/internal/dfa"
 	"strconv"
 	"strings"
 	"sync"
 	"unicode"
 	"unicode/utf8"
+
+	"github.com/smasher164/regexp/internal/dfa"
+	"github.com/smasher164/regexp/syntax"
 )
 
 // Regexp is the representation of a compiled regular expression.
@@ -100,7 +101,7 @@ type regexpRO struct {
 	numSubexp      int
 	subexpNames    []string
 	longest        bool
-	searcher dfa.Searcher
+	searcher       dfa.Searcher
 }
 
 // String returns the source text used to compile the regular expression.
